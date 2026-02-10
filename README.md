@@ -71,12 +71,20 @@ docker exec -i mobility_pg psql -U postgres -d mobility < sql/03_seed.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/04_stg.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/05_marts.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/06_tests.sql
+docker exec -i mobility_pg psql -U postgres -d mobility < sql/07_extra_mart.sql
 ```
 ### Example Query
 
 To see aggregated results:
 ```bash
 docker exec -it mobility_pg psql -U postgres -d mobility -c "SELECT * FROM marts.hourly_demand;"
+```
+```markdown
+This query shows the number of trips and the average total amount grouped by payment type:
+```
+
+```bash
+SELECT * FROM marts.payment_summary;
 ```
 ### Data Quality
 
