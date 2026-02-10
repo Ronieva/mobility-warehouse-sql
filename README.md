@@ -64,18 +64,20 @@ docker compose up -d
 
 ### 2. Run the Pipeline
 
+```bash
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/01_schemas.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/02_raw.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/03_seed.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/04_stg.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/05_marts.sql
 docker exec -i mobility_pg psql -U postgres -d mobility < sql/06_tests.sql
-
+```
 ### Example Query
 
 To see aggregated results:
+```bash
 docker exec -it mobility_pg psql -U postgres -d mobility -c "SELECT * FROM marts.hourly_demand;"
-
+```
 ### Data Quality
 
 The project includes SQL tests that verify:
