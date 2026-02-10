@@ -79,9 +79,9 @@ To see aggregated results:
 ```bash
 docker exec -it mobility_pg psql -U postgres -d mobility -c "SELECT * FROM marts.hourly_demand;"
 ```
-```markdown
+
 This query shows the number of trips and the average total amount grouped by payment type:
-```
+
 
 ```bash
 SELECT * FROM marts.payment_summary;
